@@ -1,0 +1,11 @@
+{
+  "name": "hashtag-dev",
+  "subdomain": "ravichandra480-hashtag-dev",
+  "scripts": {
+    "start": "node server"
+  },
+  "version": "0.0.0",
+  "engines": {
+    "node": "0.10.x"
+  }
+}
