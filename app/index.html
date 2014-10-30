@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ngBird</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link  rel="stylesheet" href="app/css/base.css" />
+        <link href="app/css/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    </head>
+    <body>
+    	<header>
+        	<h1 class="pull-left">ng-bird</h1>
+            
+            <div class="header-nav pull-right">
+                <a href="#/login" ng-if="!isLoggedIn">Login</a>&nbsp;
+                <a href="#/signup" ng-if="!isLoggedIn">Signup</a>
+                <a ng-if="isLoggedIn"><i class="fa fa-gear"></i></a>
+                <a ng-if="isLoggedIn"><i class="fa fa-user"></i></a>
+                <a href="#/login" ng-if="isLoggedIn"><i class="fa fa-power-off"></i></a>
+            </div>
+           
+        </header>
+        
+        <main class="ng-bird">    
+            <div ng-view class="rotate" ></div>
+        </main>
+        
+        <footer>
+            @ng-bird Oct 2014
+        </footer>        
+        <script data-main="/app/js/ng_require_config" src="/app/js/vendors/require.js"></script>
+    </body>
+</html>
