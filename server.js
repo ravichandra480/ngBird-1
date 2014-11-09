@@ -36,16 +36,18 @@ router.post('/autharize', function (req, res) {
         var query = connection.query('SELECT user_key.password FROM ngbird.user_key where user_key.id = ?',[req.body.name],function(err,rows)
         {            
             if(err)
-                console.log("Error Selecting : %s ",err );   
-            var data = JSON.parse(JSON.stringify(rows));
-            if(data[0].password == req.body.password)
-            {
-                connection.query('UPDATE user_key.password SET ngbird.isloggedin=1 where user_key.id = ?',[req.body.name],function(err,rows){
-                    res.json({isAuthorized: true});
-                });
-                
-            } 
-            else{res.json({isAuthorized: false});}
+            {console.log("Error Selecting : %s ",err );}   
+            else{
+                var data = JSON.parse(JSON.stringify(rows));
+                if(data[0].password == req.body.password)
+                {
+                    connection.query('UPDATE user_key.password SET ngbird.isloggedin=1 where user_key.id = ?',[req.body.name],function(err,rows){
+                        res.json({isAuthorized: true});
+                    });
+
+                } 
+                else{res.json({isAuthorized: false});}
+            }    
          });         
          console.log(query.sql);
     });     
